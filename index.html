@@ -3,99 +3,75 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="OptanAR is a local XR processing platform that combines sensor data, AI and interaction history to deliver dynamic visual markers through XR devices.">
+  <title>OptanAR | Local Intelligence for XR</title>
 
-  <title>OptanAR | Intelligent Processing for Extended Reality</title>
-  <meta name="description" content="OptanAR is a local processing module designed to let XR devices focus on the immersive experience while AI, sensor and clinical data processing happens locally.">
-
-  <!-- Bootstrap 5 -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
-  <!-- OptanAR styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
+  <canvas id="xr-background"></canvas>
 
-  <!-- Interactive background -->
-  <canvas id="xr-background" aria-hidden="true"></canvas>
-
-  <!-- NAVIGATION -->
-  <header class="site-header">
-    <nav class="navbar navbar-expand-lg">
-      <div class="container">
-        <a class="navbar-brand brand" href="#top">Optan<span>AR</span></a>
-
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                data-bs-target="#mainNav" aria-controls="mainNav"
-                aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="mainNav">
-          <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
-            <li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li>
-            <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
-            <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
-            <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
-            <li class="nav-item">
-              <a class="btn btn-optanr btn-sm px-4" href="#contact">Contact</a>
-            </li>
-          </ul>
-        </div>
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top opta-nav">
+    <div class="container">
+      <a class="navbar-brand" href="#top"><span class="brand-mark">O</span> OptanAR</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-3">
+          <li class="nav-item"><a class="nav-link" href="#technology">Technology</a></li>
+          <li class="nav-item"><a class="nav-link" href="#how-it-works">How It Works</a></li>
+          <li class="nav-item"><a class="nav-link" href="#applications">Applications</a></li>
+          <li class="nav-item"><a class="nav-link" href="#demos">Demos</a></li>
+          <li class="nav-item"><a class="btn btn-sm btn-outline-light nav-cta" href="#contact">Contact</a></li>
+        </ul>
       </div>
-    </nav>
-  </header>
+    </div>
+  </nav>
 
   <main id="top">
 
     <!-- HERO -->
-    <section class="hero min-vh-100 d-flex align-items-center">
-      <div class="container position-relative">
-        <div class="row align-items-center">
-          <div class="col-lg-7">
+    <section class="hero-section section-space">
+      <div class="container">
+        <div class="row align-items-center g-5">
+          <div class="col-lg-6">
             <div class="eyebrow">LOCAL INTELLIGENCE FOR XR</div>
-
-            <h1 class="display-title">
-              Let XR devices<br>
-              <span>focus on XR.</span>
-            </h1>
-
+            <h1>Let the XR device focus on <span>what you see.</span></h1>
             <p class="hero-lead">
-              OptanAR moves AI, sensor and data processing away from the
-              immersive device and into a dedicated local computing module.
+              OptanAR is a local XR processing platform that combines sensor information,
+              artificial intelligence and interaction history to generate dynamic visual
+              markers and intelligent information directly through an XR viewer.
             </p>
 
-            <div class="d-flex flex-wrap gap-3 mt-4">
-              <a href="#technology" class="btn btn-optanr btn-lg">Discover OptanAR</a>
+            <div class="hero-actions">
+              <a href="#technology" class="btn btn-primary btn-lg">Discover OptanAR</a>
               <a href="#demos" class="btn btn-outline-light btn-lg">Watch the demos</a>
             </div>
 
-            <div class="hero-points mt-5">
+            <div class="hero-points">
               <div><span>01</span> Dedicated local processing</div>
               <div><span>02</span> Local AI capabilities</div>
-              <div><span>03</span> Clinical data stays local</div>
+              <div><span>03</span> Dynamic XR information</div>
+              <div><span>04</span> Controlled handling of sensitive information</div>
             </div>
           </div>
 
-          <div class="col-lg-5 mt-5 mt-lg-0">
-            <div class="hero-visual">
-              <div class="orb orb-a"></div>
-              <div class="orb orb-b"></div>
-              <div class="xr-frame">
-                <div class="xr-frame-grid"></div>
-                <div class="xr-label">OPTANAR / LOCAL NODE</div>
-                <div class="xr-core">
-                  <div class="core-ring"></div>
-                  <div class="core-center">AI</div>
-                </div>
-                <div class="data-line line-a"></div>
-                <div class="data-line line-b"></div>
-                <div class="data-line line-c"></div>
+          <div class="col-lg-6">
+            <div class="three-stage">
+              <div class="stage-label">OPTANAR / LOCAL PROCESSING NODE</div>
+              <div id="three-scene" aria-label="Interactive OptanAR architecture visualization"></div>
+              <div class="stage-caption">
+                <span>XR VIEWER</span>
+                <span>→</span>
+                <strong>OPTANAR</strong>
+                <span>→</span>
+                <span>AI + SENSORS</span>
               </div>
             </div>
           </div>
@@ -103,44 +79,46 @@
       </div>
     </section>
 
-    <!-- CORE IDEA -->
-    <section id="technology" class="section-padding">
+    <!-- TECHNOLOGY -->
+    <section id="technology" class="section-space">
       <div class="container">
-        <div class="section-kicker">THE IDEA</div>
-        <h2 class="section-title">One device for the experience.<br><span>One module for the intelligence.</span></h2>
+        <div class="section-heading">
+          <div class="eyebrow">THE TECHNOLOGY</div>
+          <h2>Processing happens where intelligence belongs.</h2>
+          <p>
+            OptanAR acts as a dedicated local processing layer between the immersive
+            XR experience and the information that needs to be interpreted.
+          </p>
+        </div>
 
-        <div class="row g-4 mt-4">
+        <div class="row g-4">
           <div class="col-md-4">
             <article class="feature-card">
               <div class="feature-number">01</div>
               <h3>Offload the processing</h3>
               <p>
-                XR hardware can focus on rendering and interaction while
-                OptanAR handles additional local processing requirements.
+                The XR viewer can concentrate on delivering the immersive visual experience
+                while OptanAR handles additional processing requirements.
               </p>
             </article>
           </div>
-
           <div class="col-md-4">
             <article class="feature-card">
               <div class="feature-number">02</div>
               <h3>Local AI</h3>
               <p>
-                OptanAR is designed as a local intelligent node, enabling
-                AI-driven processing without making every task dependent
-                on an external cloud service.
+                AI processing can operate locally, combining current sensor information
+                with information accumulated through previous interactions and training.
               </p>
             </article>
           </div>
-
           <div class="col-md-4">
             <article class="feature-card">
               <div class="feature-number">03</div>
-              <h3>Data stays where it matters</h3>
+              <h3>Dynamic XR information</h3>
               <p>
-                For clinical and sensitive applications, the architecture
-                is designed around local handling of interaction and
-                application data.
+                OptanAR can transform processed information into dynamic markers and
+                visual elements that can be presented through the XR viewer.
               </p>
             </article>
           </div>
@@ -149,59 +127,50 @@
     </section>
 
     <!-- HOW IT WORKS -->
-    <section id="how-it-works" class="section-padding section-dark">
+    <section id="how-it-works" class="section-space architecture-section">
       <div class="container">
-        <div class="section-kicker">HOW IT WORKS</div>
-        <div class="row align-items-center g-5">
+        <div class="row g-5 align-items-center">
           <div class="col-lg-5">
-            <h2 class="section-title">Think of XR like a <span>console.</span></h2>
-            <p class="section-text">
-              A display should display. Controllers should provide input.
-              The console performs the processing. OptanAR applies the same
-              separation of responsibilities to XR systems.
+            <div class="eyebrow">HOW IT WORKS</div>
+            <h2>Think of XR like a game console.</h2>
+            <p>
+              A simple analogy: the screen displays the experience, while the console
+              performs the processing. Controllers provide information to the console;
+              they do not turn the screen into the console.
             </p>
-
-            <div class="analogy-list">
-              <div class="analogy-item">
-                <strong>XR Device</strong>
-                <span>The immersive interface</span>
-              </div>
-              <div class="analogy-item">
-                <strong>OptanAR</strong>
-                <span>The local intelligence & processing layer</span>
-              </div>
-              <div class="analogy-item">
-                <strong>Application</strong>
-                <span>The experience built on top of the system</span>
-              </div>
-            </div>
+            <p>
+              OptanAR applies a similar principle to XR. The viewer presents the
+              experience, while OptanAR processes information coming from sensors,
+              AI and previous interactions.
+            </p>
           </div>
 
           <div class="col-lg-7">
-            <div class="architecture">
-              <div class="arch-node xr-node">
-                <small>XR DEVICE</small>
-                <strong>IMMERSIVE<br>EXPERIENCE</strong>
+            <div class="architecture-flow">
+              <div class="architecture-node">
+                <span class="node-kicker">01</span>
+                <strong>XR DEVICE</strong>
+                <small>Immersive visual experience</small>
               </div>
-
-              <div class="arch-connection">
-                <span>DATA / INTERACTION</span>
-                <div class="connection-line"></div>
+              <div class="flow-arrow">→</div>
+              <div class="architecture-node active">
+                <span class="node-kicker">02</span>
+                <strong>OPTANAR</strong>
+                <small>Local processing + AI</small>
               </div>
-
-              <div class="arch-node optanr-node">
-                <small>OPTANAR</small>
-                <strong>LOCAL AI<br>PROCESSING</strong>
+              <div class="flow-arrow">→</div>
+              <div class="architecture-node">
+                <span class="node-kicker">03</span>
+                <strong>DATA SOURCES</strong>
+                <small>Sensors + interactions + AI context</small>
               </div>
+            </div>
 
-              <div class="arch-connection">
-                <span>CLINICAL / APP DATA</span>
-                <div class="connection-line"></div>
-              </div>
-
-              <div class="arch-node data-node">
-                <small>LOCAL ENVIRONMENT</small>
-                <strong>CLINIC /<br>NETWORK</strong>
+            <div class="result-box">
+              <span class="result-dot"></span>
+              <div>
+                <strong>Processed information returns to the XR experience</strong>
+                <p>Dynamic markers, contextual information and interaction-driven content.</p>
               </div>
             </div>
           </div>
@@ -210,159 +179,161 @@
     </section>
 
     <!-- APPLICATIONS -->
-    <section id="applications" class="section-padding">
+    <section id="applications" class="section-space">
       <div class="container">
-        <div class="section-kicker">APPLICATIONS</div>
-        <h2 class="section-title">Built for experiences where <span>data matters.</span></h2>
-        <p class="section-text section-text-wide">
-          The first demonstrations focus on orthodontic applications. The
-          underlying concept is designed to support broader XR experiences
-          that require local processing, AI and controlled data handling.
-        </p>
+        <div class="section-heading">
+          <div class="eyebrow">APPLICATIONS</div>
+          <h2>From sensor information to meaningful XR interaction.</h2>
+          <p>
+            The current demonstrations focus on orthodontics, showing how processed
+            information can become part of an XR-assisted experience.
+          </p>
+        </div>
 
-        <div class="row g-4 mt-4">
+        <div class="row g-4">
           <div class="col-lg-6">
-            <div class="application-card application-card-main">
-              <div class="application-placeholder">
-                <span>ORTHODONTICS / DEMO IMAGE</span>
+            <article class="application-card">
+              <img src="assets/images/optanar-orthodontics.jpg" alt="OptanAR orthodontics application">
+              <div class="application-overlay">
+                <span class="badge">CURRENT APPLICATION</span>
+                <h3>Orthodontics</h3>
+                <p>XR visualization supported by processed information and dynamic markers.</p>
               </div>
-              <div class="application-content">
-                <div class="application-tag">CURRENT DEMONSTRATION</div>
-                <h3>Orthodontic XR</h3>
-                <p>
-                  An example of how OptanAR can become the local processing
-                  layer behind an interactive clinical XR experience.
-                </p>
-                <a href="#demos" class="text-link">Explore the demos →</a>
-              </div>
-            </div>
+            </article>
           </div>
-
           <div class="col-lg-6">
-            <div class="application-card">
-              <div class="application-placeholder">
-                <span>FUTURE APPLICATION</span>
-              </div>
-              <div class="application-content">
-                <div class="application-tag">PLATFORM CONCEPT</div>
-                <h3>Local intelligent environments</h3>
+            <article class="application-card">
+              <img src="assets/images/optanar-platform.jpg" alt="OptanAR orthodontics application">
+              <div class="application-overlay">
+                <span class="badge">PLATFORM</span>
+                <h3>Intelligent local environments</h3>
                 <p>
-                  A dedicated local node can support XR applications,
-                  sensors and AI agents as part of a controlled environment.
+                  A platform approach for combining physical sensors, AI processing,
+                  interaction history and XR visualization.
                 </p>
-                <span class="text-muted-custom">More applications to come</span>
               </div>
-            </div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- MEDIA / DEMOS -->
-    <section id="demos" class="section-padding section-media">
+    <!-- DEMOS -->
+    <section id="demos" class="section-space">
       <div class="container">
-        <div class="section-kicker">SEE IT IN ACTION</div>
-        <div class="row align-items-end">
-          <div class="col-lg-8">
-            <h2 class="section-title">From concept<br><span>to working experience.</span></h2>
-          </div>
+        <div class="section-heading">
+          <div class="eyebrow">SEE OPTANAR IN ACTION</div>
+          <h2>Watch the platform at work.</h2>
+          <p>
+            Replace the three YouTube IDs below with the IDs of your actual videos.
+            No video files need to be stored in the project.
+          </p>
+        </div>
+
+        <div class="row g-4">
           <div class="col-lg-4">
-            <p class="section-text mb-0">
-              These media blocks are ready for your pitch video and
-              orthodontic application demonstrations.
-            </p>
-          </div>
-        </div>
-
-        <div class="row g-4 mt-4">
-          <div class="col-lg-7">
-            <div class="video-card video-card-large">
-              <div class="video-placeholder">
-                <div class="play-button">▶</div>
-                <span>PITCH VIDEO</span>
+            <article class="video-card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://www.youtube.com/watch?v=AeA8wv9oNZQ"
+                  title="OptanAR Pitch"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
-            </div>
+              <div class="video-info"><span>01</span><h3>OptanAR Pitch</h3></div>
+            </article>
           </div>
 
-          <div class="col-lg-5">
-            <div class="video-card mb-4">
-              <div class="video-placeholder">
-                <div class="play-button">▶</div>
-                <span>ORTHODONTIC DEMO 01</span>
+          <div class="col-lg-4">
+            <article class="video-card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://youtu.be/9YiD7d-QDz8"
+                  title="OptanAR Orthodontics Demonstration 01"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
-            </div>
-            <div class="video-card">
-              <div class="video-placeholder">
-                <div class="play-button">▶</div>
-                <span>ORTHODONTIC DEMO 02</span>
+              <div class="video-info"><span>02</span><h3>Orthodontics Demo I</h3></div>
+            </article>
+          </div>
+
+          <div class="col-lg-4">
+            <article class="video-card">
+              <div class="ratio ratio-16x9">
+                <iframe src="https://youtu.be/f-rDHpa8J-I"
+                  title="OptanAR Orthodontics Demonstration 02"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen></iframe>
               </div>
-            </div>
+              <div class="video-info"><span>03</span><h3>Orthodontics Demo II</h3></div>
+            </article>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- IMAGE STRIP -->
-    <section class="image-strip-section">
-      <div class="container-fluid px-0">
-        <div class="image-strip">
-          <div class="image-placeholder">XR IMAGE 01</div>
-          <div class="image-placeholder">XR IMAGE 02</div>
-          <div class="image-placeholder">XR IMAGE 03</div>
-          <div class="image-placeholder">XR IMAGE 04</div>
-        </div>
-      </div>
-    </section>
-
-    <!-- DATA / PRIVACY -->
-    <section class="section-padding privacy-section">
+    <!-- IMAGES -->
+    <section class="section-space image-gallery-section">
       <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-9">
-            <div class="section-kicker">LOCAL BY DESIGN</div>
-            <h2 class="section-title">Sensitive information deserves a <span>controlled environment.</span></h2>
-            <p class="section-text">
-              OptanAR is intended to keep application and interaction processing
-              within the local environment rather than treating the XR headset
-              as the place where all processing must happen.
-            </p>
+        <div class="section-heading">
+          <div class="eyebrow">XR VISUALS</div>
+          <h2>The experience is visual.</h2>
+          <p>
+            These four images can be used to explain the XR principle and give the
+            platform a visual identity before the visitor reaches the demonstrations.
+          </p>
+        </div>
 
-            <div class="privacy-grid mt-5">
-              <div>
-                <strong>LOCAL</strong>
-                <span>Processing at the point of use</span>
-              </div>
-              <div>
-                <strong>CONTROLLED</strong>
-                <span>Designed for clinical environments</span>
-              </div>
-              <div>
-                <strong>INTELLIGENT</strong>
-                <span>Local AI capabilities</span>
+        <div class="row g-3 image-gallery">
+          <div class="col-md-6"><img src="assets/images/optanar-xr-01.jpg" alt="OptanAR XR visualization 01"></div>
+          <div class="col-md-6"><img src="assets/images/optanar-xr-02.jpg" alt="OptanAR XR visualization 02"></div>
+          <div class="col-md-6"><img src="assets/images/optanar-xr-03.jpg" alt="OptanAR XR visualization 03"></div>
+          <div class="col-md-6"><img src="assets/images/optanar-xr-04.jpg" alt="OptanAR XR visualization 04"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRIVACY / LOCAL -->
+    <section class="section-space privacy-section">
+      <div class="container">
+        <div class="privacy-panel">
+          <div class="row g-5 align-items-center">
+            <div class="col-lg-6">
+              <div class="eyebrow">LOCAL BY DESIGN</div>
+              <h2>Keep sensitive information within the environment where it is used.</h2>
+              <p>
+                OptanAR is designed around local processing and controlled information
+                handling. In a clinical environment, this can provide an architecture
+                in which sensitive information can be processed locally rather than
+                requiring every operation to depend on an external service.
+              </p>
+              <p class="small-note">
+                Specific privacy, security and regulatory claims depend on the final
+                deployment architecture, configuration and applicable requirements.
+              </p>
+            </div>
+            <div class="col-lg-6">
+              <div class="privacy-grid">
+                <div><strong>LOCAL</strong><span>Processing close to the source</span></div>
+                <div><strong>CONTROLLED</strong><span>Designed for managed environments</span></div>
+                <div><strong>INTELLIGENT</strong><span>AI-assisted local processing</span></div>
+                <div><strong>SCALABLE</strong><span>Potential service-based deployment</span></div>
               </div>
             </div>
-
-            <p class="disclaimer mt-4">
-              Privacy, security and regulatory claims will be specified here
-              once the technical and legal requirements of the final product
-              are defined.
-            </p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- CTA -->
-    <section id="contact" class="cta-section">
+    <section id="contact" class="section-space cta-section">
       <div class="container">
-        <div class="cta-box">
-          <div class="section-kicker">OPTANAR</div>
+        <div class="cta-panel">
+          <div class="eyebrow">OPTANAR</div>
           <h2>XR should be immersive.<br><span>Intelligence should be local.</span></h2>
           <p>
-            Discover how OptanAR can become the processing layer behind
-            your next XR application.
+            Explore how OptanAR can connect XR visualization, sensors and local AI
+            in a single processing platform.
           </p>
-          <a href="mailto:YOUR_EMAIL@example.com" class="btn btn-optanr btn-lg">Talk to us</a>
+          <a href="mailto:alfredogilbert@gmail.com" class="btn btn-primary btn-lg">Talk to us</a>
         </div>
       </div>
     </section>
@@ -370,16 +341,23 @@
   </main>
 
   <footer class="site-footer">
-    <div class="container d-flex flex-column flex-md-row justify-content-between gap-3">
-      <div>© 2026 OptanAR</div>
-      <div>Local Intelligence for Extended Reality</div>
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2">
+      <span>© 2026 OptanAR</span>
+      <span>Local processing · XR · AI · Sensor intelligence</span>
     </div>
   </footer>
 
-  <!-- Bootstrap -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
-  <!-- Three.js: prepared for the interactive XR background -->
+  <!-- Three.js -->
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "https://cdn.jsdelivr.net/npm/three@0.180.0/build/three.module.js",
+      "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.180.0/examples/jsm/"
+    }
+  }
+  </script>
   <script type="module" src="js/main.js"></script>
 </body>
 </html>

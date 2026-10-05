@@ -28,15 +28,33 @@ body {
   color: var(--text);
   font-family: "Inter", sans-serif;
   overflow-x: hidden;
+  position: relative;
 }
 
 #xr-background {
   position: fixed;
-  inset: 0;
-  z-index: -2;
+  top: 0;
+  left: 0;
+
+  width: 100vw;
+  height: 100vh;
+
+  z-index: 0;
   pointer-events: none;
-  opacity: .65;
+
+  opacity: 0.55,
+/* =========================================================
+   XR BACKGROUND LAYER
+   ========================================================= */
+
+body > nav,
+body > main,
+body > footer {
+  position: relative;
+  z-index: 1;
 }
+
+
 
 a { text-decoration: none; }
 
@@ -320,10 +338,17 @@ h3 { letter-spacing: -.025em; }
 
 .application-card img {
   width: 100%;
-  height: 100%;
-  min-height: 500px;
+  height: 320px;
+  min-height: 0;
   object-fit: cover;
   opacity: .72;
+  cursor: pointer;
+  transition: transform .35s ease, filter .35s ease, border-color .35s ease;
+}
+
+.application-card img:hover {
+  transform: scale(1.015);
+  filter: brightness(1.12);
 }
 
 .application-overlay {
@@ -396,16 +421,114 @@ h3 { letter-spacing: -.025em; }
 
 .image-gallery img {
   width: 100%;
-  aspect-ratio: 16 / 10;
+  height: 320px;
   object-fit: cover;
   border-radius: 18px;
   border: 1px solid var(--line);
-  transition: transform .35s ease, filter .35s ease;
+  cursor: pointer;
+  transition: transform .35s ease, filter .35s ease, border-color .35s ease;
 }
 
 .image-gallery img:hover {
   transform: scale(1.015);
-  filter: brightness(1.1);
+  filter: brightness(1.12);
+  border-color: rgba(100, 233, 255, .45);
+}
+
+/* =========================
+   IMAGE LIGHTBOX
+   ========================= */
+
+.image-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+
+  display: none;
+  align-items: center;
+  justify-content: center;
+
+  padding: 30px;
+
+  background: rgba(0, 0, 0, .92);
+  backdrop-filter: blur(12px);
+
+  cursor: zoom-out;
+}
+
+.image-lightbox.active {
+  display: flex;
+}
+
+.image-lightbox img {
+  max-width: 95vw;
+  max-height: 90vh;
+
+  width: auto;
+  height: auto;
+
+  object-fit: contain;
+
+  border-radius: 12px;
+  border: 1px solid rgba(100, 233, 255, .35);
+
+  box-shadow:
+    0 0 40px rgba(100, 233, 255, .15),
+    0 30px 100px rgba(0, 0, 0, .7);
+
+  cursor: default;
+}
+
+.image-lightbox-close {
+  position: absolute;
+
+  top: 20px;
+  right: 30px;
+
+  width: 45px;
+  height: 45px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 50%;
+
+  background: rgba(10,15,24,.8);
+
+  color: white;
+  font-size: 28px;
+  line-height: 1;
+
+  cursor: pointer;
+
+  transition: .25s ease;
+}
+
+.image-lightbox-close:hover {
+  background: var(--accent);
+  color: #041016;
+  border-color: var(--accent);
+}
+
+@media (max-width: 575px) {
+  .image-gallery img {
+    height: 230px;
+  }
+
+  .image-lightbox {
+    padding: 15px;
+  }
+
+  .image-lightbox img {
+    max-width: 96vw;
+    max-height: 85vh;
+  }
+
+  .image-lightbox-close {
+    top: 12px;
+    right: 15px;
+  }
 }
 
 .privacy-panel {
@@ -489,4 +612,172 @@ h3 { letter-spacing: -.025em; }
   .hero-points { grid-template-columns: 1fr; }
   .stage-caption { gap: 7px; font-size: .55rem; }
   .privacy-grid { grid-template-columns: 1fr; }
+}
+/* =========================================================
+   PARTNER VALIDATION BANNER
+   ========================================================= */
+
+.partner-banner {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+
+  margin: 28px 0 30px;
+  padding: 18px 22px;
+
+  border: 1px solid rgba(100, 233, 255, 0.65);
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(100, 233, 255, 0.14),
+      rgba(157, 124, 255, 0.12),
+      rgba(100, 233, 255, 0.08)
+    );
+
+  box-shadow:
+    0 0 18px rgba(100, 233, 255, 0.12),
+    inset 0 0 25px rgba(100, 233, 255, 0.04);
+
+  overflow: hidden;
+
+  animation: partnerGlow 2.5s ease-in-out infinite;
+}
+
+
+/* Animated light passing through the banner */
+
+.partner-banner::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -120%;
+  width: 70%;
+  height: 100%;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.18),
+    transparent
+  );
+
+  transform: skewX(-20deg);
+
+  animation: partnerSweep 4s ease-in-out infinite;
+}
+
+
+/* Pulsing status indicator */
+
+.partner-pulse {
+  position: relative;
+  z-index: 2;
+
+  width: 11px;
+  height: 11px;
+
+  flex: 0 0 11px;
+
+  border-radius: 50%;
+
+  background: var(--accent);
+
+  box-shadow:
+    0 0 7px var(--accent),
+    0 0 18px var(--accent),
+    0 0 30px rgba(100, 233, 255, 0.5);
+
+  animation: partnerPulse 1.6s ease-in-out infinite;
+}
+
+
+/* Text */
+
+.partner-text {
+  position: relative;
+  z-index: 2;
+
+  color: #ffffff;
+
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+
+  letter-spacing: 0.01em;
+  line-height: 1.4;
+
+  text-shadow:
+    0 0 8px rgba(100, 233, 255, 0.25);
+}
+
+
+/* Banner glow */
+
+@keyframes partnerGlow {
+
+  0%, 100% {
+    border-color: rgba(100, 233, 255, 0.45);
+
+    box-shadow:
+      0 0 12px rgba(100, 233, 255, 0.08),
+      inset 0 0 20px rgba(100, 233, 255, 0.02);
+  }
+
+  50% {
+    border-color: rgba(100, 233, 255, 1);
+
+    box-shadow:
+      0 0 28px rgba(100, 233, 255, 0.28),
+      0 0 55px rgba(100, 233, 255, 0.10),
+      inset 0 0 25px rgba(100, 233, 255, 0.06);
+  }
+}
+
+
+/* Pulsing dot */
+
+@keyframes partnerPulse {
+
+  0%, 100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.45);
+    opacity: 0.65;
+  }
+}
+
+
+/* Moving light */
+
+@keyframes partnerSweep {
+
+  0% {
+    left: -120%;
+  }
+
+  45%, 100% {
+    left: 150%;
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width: 575px) {
+
+  .partner-banner {
+    padding: 15px 17px;
+    margin: 24px 0;
+  }
+
+  .partner-text {
+    font-size: 0.92rem;
+  }
+
 }

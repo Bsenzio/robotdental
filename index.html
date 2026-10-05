@@ -11,9 +11,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpg">
 </head>
 
+<div class="image-lightbox" id="imageLightbox">
+
+  <button class="image-lightbox-close" id="imageLightboxClose" aria-label="Close">
+    ×
+  </button>
+
+  <img id="lightboxImage" src="" alt="">
+
+</div>
+
+
 <body>
+  
   <canvas id="xr-background"></canvas>
 
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top opta-nav">
@@ -48,7 +61,12 @@
               artificial intelligence and interaction history to generate dynamic visual
               markers and intelligent information directly through an XR viewer.
             </p>
-
+            <div class="partner-banner">
+              <span class="partner-pulse"></span>
+              <span class="partner-text">
+                Currently seeking clinical and technology validation partners
+              </span>
+            </div>
             <div class="hero-actions">
               <a href="#technology" class="btn btn-primary btn-lg">Discover OptanAR</a>
               <a href="#demos" class="btn btn-outline-light btn-lg">Watch the demos</a>
@@ -224,48 +242,62 @@
         <div class="section-heading">
           <div class="eyebrow">SEE OPTANAR IN ACTION</div>
           <h2>Watch the platform at work.</h2>
-          <p>
-            Replace the three YouTube IDs below with the IDs of your actual videos.
-            No video files need to be stored in the project.
-          </p>
+
         </div>
 
         <div class="row g-4">
+        
           <div class="col-lg-4">
             <article class="video-card">
               <div class="ratio ratio-16x9">
-                <iframe src="https://www.youtube.com/watch?v=AeA8wv9oNZQ"
+                <iframe
+                  src="https://www.youtube.com/embed/AeA8wv9oNZQ"
                   title="OptanAR Pitch"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+                  allowfullscreen>
+                </iframe>
               </div>
-              <div class="video-info"><span>01</span><h3>OptanAR Pitch</h3></div>
+              <div class="video-info">
+                <span>01</span>
+                <h3>OptanAR Pitch</h3>
+              </div>
             </article>
           </div>
-
+        
           <div class="col-lg-4">
             <article class="video-card">
               <div class="ratio ratio-16x9">
-                <iframe src="https://youtu.be/9YiD7d-QDz8"
+                <iframe
+                  src="https://www.youtube.com/embed/9YiD7d-QDz8"
                   title="OptanAR Orthodontics Demonstration 01"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+                  allowfullscreen>
+                </iframe>
               </div>
-              <div class="video-info"><span>02</span><h3>Orthodontics Demo I</h3></div>
+              <div class="video-info">
+                <span>02</span>
+                <h3>Orthodontics Demo I</h3>
+              </div>
             </article>
           </div>
-
+        
           <div class="col-lg-4">
             <article class="video-card">
               <div class="ratio ratio-16x9">
-                <iframe src="https://youtu.be/f-rDHpa8J-I"
+                <iframe
+                  src="https://www.youtube.com/embed/f-rDHpa8J-I"
                   title="OptanAR Orthodontics Demonstration 02"
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                  allowfullscreen></iframe>
+                  allowfullscreen>
+                </iframe>
               </div>
-              <div class="video-info"><span>03</span><h3>Orthodontics Demo II</h3></div>
+              <div class="video-info">
+                <span>03</span>
+                <h3>Orthodontics Demo II</h3>
+              </div>
             </article>
           </div>
+        
         </div>
       </div>
     </section>
@@ -277,8 +309,7 @@
           <div class="eyebrow">XR VISUALS</div>
           <h2>The experience is visual.</h2>
           <p>
-            These four images can be used to explain the XR principle and give the
-            platform a visual identity before the visitor reaches the demonstrations.
+            Discover the principles behind XR and explore how immersive technology can transform the way we experience the world.
           </p>
         </div>
 
@@ -334,6 +365,12 @@
             in a single processing platform.
           </p>
           <a href="mailto:alfredogilbert@gmail.com" class="btn btn-primary btn-lg">Talk to us</a>
+            <div class="partner-banner">
+              <span class="partner-pulse"></span>
+              <span class="partner-text">
+                Currently seeking clinical and technology validation partners for a pilot program
+              </span>
+            </div>
         </div>
       </div>
     </section>
@@ -359,5 +396,282 @@
   }
   </script>
   <script type="module" src="js/main.js"></script>
+  
+  
+ <script>
+document.addEventListener("DOMContentLoaded", function () {
+
+  
+ const galleryImages = document.querySelectorAll(
+    ".image-gallery img, .application-card img"
+  );
+  const lightbox = document.getElementById("imageLightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const closeButton = document.getElementById("imageLightboxClose");
+
+  galleryImages.forEach(function (image) {
+
+    image.addEventListener("click", function () {
+
+      lightboxImage.src = image.src;
+      lightboxImage.alt = image.alt;
+
+      lightbox.classList.add("active");
+
+      document.body.style.overflow = "hidden";
+    });
+
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("active");
+    document.body.style.overflow = "";
+  }
+
+  closeButton.addEventListener("click", function (event) {
+    event.stopPropagation();
+    closeLightbox();
+  });
+
+  lightbox.addEventListener("click", function (event) {
+
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+
+  });
+
+  document.addEventListener("keydown", function (event) {
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+  });
+
+});
+</script>  
+<script>
+(function () {
+
+  const canvas = document.getElementById("xr-background");
+
+  if (!canvas) return;
+
+  const ctx = canvas.getContext("2d");
+
+  let width = 0;
+  let height = 0;
+  let animationFrame;
+
+  const nodes = [];
+  const NODE_COUNT = 35;
+
+  function resize() {
+
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+    width = window.innerWidth;
+    height = window.innerHeight;
+
+    canvas.width = width * dpr;
+    canvas.height = height * dpr;
+
+    canvas.style.width = width + "px";
+    canvas.style.height = height + "px";
+
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    createNodes();
+  }
+
+  function createNodes() {
+
+    nodes.length = 0;
+
+    for (let i = 0; i < NODE_COUNT; i++) {
+
+      nodes.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        size: Math.random() * 2 + 0.5,
+        speed: Math.random() * 0.15 + 0.03,
+        phase: Math.random() * Math.PI * 2
+      });
+
+    }
+  }
+
+  function drawGrid() {
+
+    const gridSize = 70;
+
+    ctx.lineWidth = 1;
+
+    for (let x = 0; x < width; x += gridSize) {
+
+      ctx.strokeStyle = "rgba(100,233,255,0.035)";
+
+      ctx.beginPath();
+      ctx.moveTo(x, 0);
+      ctx.lineTo(x, height);
+      ctx.stroke();
+    }
+
+    for (let y = 0; y < height; y += gridSize) {
+
+      ctx.strokeStyle = "rgba(157,124,255,0.025)";
+
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+  }
+
+  function drawPerspectiveGrid() {
+
+    const horizon = height * 0.55;
+
+    ctx.lineWidth = 1;
+
+    for (let i = -10; i <= 10; i++) {
+
+      const bottomX = width / 2 + i * 140;
+
+      ctx.strokeStyle = "rgba(100,233,255,0.035)";
+
+      ctx.beginPath();
+      ctx.moveTo(width / 2, horizon);
+      ctx.lineTo(bottomX, height);
+      ctx.stroke();
+    }
+
+    for (let i = 1; i < 8; i++) {
+
+      const y = horizon + Math.pow(i / 7, 1.8) * (height - horizon);
+
+      ctx.strokeStyle = "rgba(100,233,255,0.035)";
+
+      ctx.beginPath();
+      ctx.moveTo(0, y);
+      ctx.lineTo(width, y);
+      ctx.stroke();
+    }
+  }
+
+  function drawNodes(time) {
+
+    nodes.forEach(function (node) {
+
+      node.y -= node.speed;
+
+      if (node.y < -20) {
+        node.y = height + 20;
+        node.x = Math.random() * width;
+      }
+
+      const pulse =
+        0.5 +
+        Math.sin(time * 0.0015 + node.phase) * 0.25;
+
+      ctx.beginPath();
+
+      ctx.arc(
+        node.x,
+        node.y,
+        node.size,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fillStyle =
+        "rgba(100,233,255," + pulse * 0.35 + ")";
+
+      ctx.fill();
+
+    });
+  }
+
+  function drawTrackingMarkers(time) {
+
+    const positions = [
+      [0.15, 0.28],
+      [0.82, 0.22],
+      [0.88, 0.72],
+      [0.12, 0.78]
+    ];
+
+    positions.forEach(function (position, index) {
+
+      const x = width * position[0];
+      const y = height * position[1];
+
+      const pulse =
+        Math.sin(time * 0.001 + index) * 0.5 + 0.5;
+
+      const size = 14 + pulse * 5;
+
+      ctx.strokeStyle =
+        "rgba(100,233,255," +
+        (0.08 + pulse * 0.10) +
+        ")";
+
+      ctx.lineWidth = 1;
+
+      ctx.beginPath();
+
+      ctx.moveTo(x - size, y);
+      ctx.lineTo(x - size / 2, y);
+
+      ctx.moveTo(x + size / 2, y);
+      ctx.lineTo(x + size, y);
+
+      ctx.moveTo(x, y - size);
+      ctx.lineTo(x, y - size / 2);
+
+      ctx.moveTo(x, y + size / 2);
+      ctx.lineTo(x, y + size);
+
+      ctx.stroke();
+
+      ctx.beginPath();
+
+      ctx.arc(
+        x,
+        y,
+        2,
+        0,
+        Math.PI * 2
+      );
+
+      ctx.fillStyle =
+        "rgba(100,233,255,0.35)";
+
+      ctx.fill();
+
+    });
+  }
+
+  function animate(time) {
+
+    ctx.clearRect(0, 0, width, height);
+
+    drawGrid();
+    drawPerspectiveGrid();
+    drawNodes(time);
+    drawTrackingMarkers(time);
+
+    animationFrame = requestAnimationFrame(animate);
+  }
+
+  window.addEventListener("resize", resize);
+
+  resize();
+
+  animationFrame = requestAnimationFrame(animate);
+
+})();
+</script>  
 </body>
 </html>
